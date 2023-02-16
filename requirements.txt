@@ -1,0 +1,8 @@
+# app
+sqlalchemy
+psycopg2-binary
+flask
+
+# dev/tests
+pytest
+pycrunch-engine

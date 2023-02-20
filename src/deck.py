@@ -1,5 +1,7 @@
 from enum import Enum
 
+from src.match import DeckDTO
+
 
 class PokemonType(Enum):
 	COLORLESS = "Colorless"
@@ -22,6 +24,7 @@ class Card:
 		self.pokemon = pokemon
 		self.energy = energy
 		self.trainer = trainer
+		self.name = "a-name"
 
 
 def create_list_of_cards(num, pokemon=False, energy=False, trainer=False, kind=1):
@@ -43,3 +46,7 @@ class Deck:
 			create_list_of_cards(4, trainer=True, kind=8) +
 			create_list_of_cards(2, trainer=True, kind=9)
 		)
+
+
+def from_deck_to_deck_dto(deck: Deck) -> DeckDTO:
+	return DeckDTO(cards=[c.name for c in deck.cards])
